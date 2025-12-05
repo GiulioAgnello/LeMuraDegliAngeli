@@ -2,47 +2,25 @@ body {
   width: 100%;
   margin: 0;
 }
-.logoheader {
-  width: 5%;
-}
 
 #navbarSupportedContent li a:hover {
   color: #ccc;
   text-decoration: overline;
 }
 
-.herospace {
-  height: 600px;
-  position: relative;
-  background-image: url(../public/1.jpg);
-  background-position: center;
+.navcontainer {
+  background-image: url(../public/IMG_5289.JPEG);
   background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 800px;
 }
 
-.herospace img {
-  width: 100%;
-  object-fit: fill;
-}
-
-.logohero img {
-  width: 30%;
-  padding-right: 30px;
-}
-.logohero {
-  height: 250px;
-  min-width: 800px;
-  padding: 20px;
-  position: absolute;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 500px;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgb(106, 106, 106);
-  border-radius: 10px;
+.title img {
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
+  width: 300px;
+  height: 120px;
 }

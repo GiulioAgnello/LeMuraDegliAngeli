@@ -3,15 +3,14 @@ import { NavLink, Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="navcontainer ">
+      <Link className="title" to="/">
+        <img
+          src="public/Le_Mura_degli_Angeli__1_-removebg-preview.png"
+          alt="title"
+        />
+      </Link>
       <nav className="navbar navbar-expand-lg bg-body-tartary">
         <div className="container-fluid">
-          {/* <Link className="navbar-brand" to="/">
-            <img
-              src="public/loghi/logo_no_background.png"
-              alt="LeMuraDegliAngeli"
-              style={{ width: "100px" }}
-            />
-          </Link> */}
           <button
             className="navbar-toggler"
             type="button"
