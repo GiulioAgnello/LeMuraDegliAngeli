@@ -1,0 +1,89 @@
+body {
+  width: 100%;
+  margin: 0;
+}
+
+#navbarSupportedContent li a:hover {
+  color: #ccc;
+  text-decoration: overline;
+}
+
+.navcontainer {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.title img {
+  object-fit: cover;
+  margin: 0 auto;
+  height: 100px;
+  width: 250px;
+}
+
+.hero-section {
+  background-image: url(../public/IMG_5289.JPEG);
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* .hero-content {
+  padding: 30px;
+
+  border-radius: 20px;
+} */
+
+/* .hero-content h1 {
+  color: #fff;
+  text
+
+  font-size: 5rem;
+  margin-bottom: 20px;
+} */
+
+.typewriter-container {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 3rem;
+  backdrop-filter: blur(5px);
+}
+
+.typewriter-text {
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+
+  animation: typing 4s steps(80, end) 1s 1 normal both,
+    blinkCursor 700ms steps(1, end) infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 36ch;
+  }
+}
+
+@keyframes blinkCursor {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: black;
+  }
+}

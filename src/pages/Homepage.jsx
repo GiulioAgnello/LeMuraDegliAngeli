@@ -2,11 +2,11 @@ export default function Homepage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero-section vh-100 d-flex align-items-center justify-content-center bg-cover position-relative">
-        <div className="hero-content text-center text-white   ">
-          <h1 className="display-3 mb-3">Le Mura degli Angeli</h1>
-          <p className="lead mb-4">Scopri il Salento con stile e comfort</p>
-          <button className="btn btn-primary btn-lg">Prenota ora</button>
+      <section className="hero-section vh-100 d-flex align-items-center justify-content-center">
+        <div class="typewriter-container text-center text-white">
+          <div class="typewriter-text">
+            Tranquillità, Confort e Vitalenta...
+          </div>
         </div>
       </section>
 
