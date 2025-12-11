@@ -1,7 +1,182 @@
 export default function Homepage() {
   return (
     <>
-      <h1>home</h1>
+      {/* Hero Section */}
+      <section className="hero-section vh-100 d-flex align-items-center justify-content-center bg-cover position-relative">
+        <div className="hero-content text-center text-white   ">
+          <h1 className="display-3 mb-3">Le Mura degli Angeli</h1>
+          <p className="lead mb-4">Scopri il Salento con stile e comfort</p>
+          <button className="btn btn-primary btn-lg">Prenota ora</button>
+        </div>
+      </section>
+
+      {/* Presentazione */}
+      <section className="py-5">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-12 col-md-6">
+              <h2>Benvenuti</h2>
+              <p>
+                La nostra residenza coniuga il comfort, la storia e il design
+                moderno. Completamente indipendente e sviluppata su tre livelli,
+                offre spazi ampi e accoglienti.
+              </p>
+              <p>
+                Perfetto per esplorare le spiagge e i borghi storici del
+                Salento.
+              </p>
+            </div>
+            <div className="col-12 col-md-6">
+              <img
+                src="/images/struttura-principale.jpg"
+                alt="Le Mura degli Angeli"
+                className="img-fluid rounded"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Galleria */}
+      <section className="py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center mb-5">Scopri la Struttura</h2>
+          <div className="row g-3">
+            <div className="col-12 col-md-6 col-lg-3">
+              <img
+                src="/images/camera1.jpg"
+                alt="Camera 1"
+                className="img-fluid rounded"
+              />
+            </div>
+            <div className="col-12 col-md-6 col-lg-3">
+              <img
+                src="/images/camera2.jpg"
+                alt="Camera 2"
+                className="img-fluid rounded"
+              />
+            </div>
+            <div className="col-12 col-md-6 col-lg-3">
+              <img
+                src="/images/cucina.jpg"
+                alt="Cucina"
+                className="img-fluid rounded"
+              />
+            </div>
+            <div className="col-12 col-md-6 col-lg-3">
+              <img
+                src="/images/terrazzo.jpg"
+                alt="Terrazzo"
+                className="img-fluid rounded"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Servizi */}
+      <section className="py-5">
+        <div className="container">
+          <h2 className="text-center mb-5">I Nostri Servizi</h2>
+          <div className="row text-center">
+            <div className="col-12 col-md-4 mb-4">
+              <i className="bi bi-wifi fs-3 text-primary mb-3"></i>
+              <h5>WiFi Gratuito</h5>
+              <p>Connessione veloce in tutta la struttura</p>
+            </div>
+            <div className="col-12 col-md-4 mb-4">
+              <i className="bi bi-cup-hot fs-3 text-primary mb-3"></i>
+              <h5>Colazione Inclusa</h5>
+              <p>Colazione italiana completa ogni mattina</p>
+            </div>
+            <div className="col-12 col-md-4 mb-4">
+              <i className="bi bi-car-front fs-3 text-primary mb-3"></i>
+              <h5>Parcheggio Privato</h5>
+              <p>Parcheggio gratuito e sicuro</p>
+            </div>
+            <div className="col-12 col-md-4 mb-4">
+              <i className="bi bi-book fs-3 text-primary mb-3"></i>
+              <h5>Consigli di Viaggio</h5>
+              <p>Guide locali e suggerimenti personalizzati</p>
+            </div>
+            <div className="col-12 col-md-4 mb-4">
+              <i className="bi bi-flower1 fs-3 text-primary mb-3"></i>
+              <h5>Terrazzo Privato</h5>
+              <p>Spazio esterno con vista panoramica</p>
+            </div>
+            <div className="col-12 col-md-4 mb-4">
+              <i className="bi bi-chat-left-heart fs-3 text-primary mb-3"></i>
+              <h5>Ospitalità Salentina</h5>
+              <p>Benvenuti con calore e autenticità</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Form Prenotazione */}
+      <section className="py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center mb-5">Chiedi Disponibilità</h2>
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-6">
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="dates" className="form-label">
+                    Date di arrivo e partenza
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="dates"
+                    placeholder="dd/mm/yyyy - dd/mm/yyyy"
+                    required
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">
+                  Invia Richiesta
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Posizione */}
+      <section className="py-5">
+        <div className="container">
+          <h2 className="text-center mb-5">Dove Siamo</h2>
+          <div className="row">
+            <div className="col-12 col-md-6 mb-4">
+              <h5>Strategia nel Salento</h5>
+              <p>Situati nel cuore del Salento, siamo a pochi km da:</p>
+              <ul>
+                <li>Spiagge di Lecce e Porto Cesareo</li>
+                <li>Centro storico di Lecce (Barocco leccese)</li>
+                <li>Melendugno e le cale salentine</li>
+                <li>Torre dell'Orso</li>
+              </ul>
+            </div>
+            <div className="col-12 col-md-6">
+              <img
+                src="/images/mappa.jpg"
+                alt="Mappa Salento"
+                className="img-fluid rounded"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

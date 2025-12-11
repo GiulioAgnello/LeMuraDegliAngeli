@@ -9,7 +9,7 @@ export default function Header() {
           alt="title"
         />
       </Link>
-      <nav className="navbar navbar-expand-lg bg-body-tartary">
+      <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -27,7 +27,7 @@ export default function Header() {
             id="navbarSupportedContent"
           >
             <ul
-              className="navbar-nav me-auto ms-auto mb-2 mb-lg-0 fs-5 text-center  p-2 gap-5"
+              className="navbar-nav me-auto ms-auto mb-lg-0 fs-5 text-center fw-bold"
               id="navbarSupportedContent"
             >
               <li className="nav-item">
