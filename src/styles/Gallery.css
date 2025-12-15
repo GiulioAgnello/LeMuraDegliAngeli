@@ -19,14 +19,15 @@
 .gallery-item {
   cursor: pointer;
   overflow: hidden;
+
   border-radius: 8px;
   aspect-ratio: 1;
   transition: transform 0.3s ease;
 }
 
-.gallery-item:hover {
+/* .gallery-item:hover {
   transform: scale(1.05);
-}
+} */
 
 .gallery-item img {
   width: 100%;
@@ -52,8 +53,8 @@
   position: relative;
   background: white;
   border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 800px;
+  max-width: 500px;
   overflow: auto;
   text-align: center;
 }
@@ -62,6 +63,7 @@
   width: 100%;
   height: auto;
   display: block;
+  object-fit: scale-down;
 }
 
 .modal-content p {
