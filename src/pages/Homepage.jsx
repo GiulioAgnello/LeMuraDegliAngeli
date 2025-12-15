@@ -28,7 +28,7 @@ export default function Homepage() {
             </div>
             <div className="col-12 col-md-6">
               <img
-                src="/images/struttura-principale.jpg"
+                src="public\1.jpg"
                 alt="Le Mura degli Angeli"
                 className="img-fluid rounded"
               />

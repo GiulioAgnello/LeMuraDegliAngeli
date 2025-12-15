@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import DefaultLayout from "./layouts/DefaultLayout";
 import Homepage from "./pages/Homepage";
-import Camere from "./pages/Camere";
+import Gallery from "./pages/Gallery";
 import Story from "./pages/Story";
 import Contacts from "./pages/Contacts";
 
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Homepage />} />
-            <Route path="/camere" element={<Camere />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/storia" element={<Story />} />
             <Route path="/contatti" element={<Contacts />} />
           </Route>

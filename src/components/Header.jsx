@@ -39,9 +39,9 @@ export default function Header() {
                 <NavLink
                   className="nav-link active"
                   aria-current="page"
-                  to="/Camere"
+                  to="/Gallery"
                 >
-                  Camere
+                  Gallery
                 </NavLink>
               </li>
               <li className="nav-item">
