@@ -25,7 +25,7 @@ body {
 .title img {
   object-fit: cover;
   margin: 0 auto;
-  height: 100px;
+  height: 98px;
   width: 250px;
 }
 
@@ -33,7 +33,7 @@ body {
   background-image: url(../public/IMG_5289.JPEG);
   background-size: cover;
   background-position: center;
-
+  height: 68vh;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 

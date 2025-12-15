@@ -2,9 +2,9 @@ export default function Homepage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero-section vh-100 d-flex align-items-center justify-content-center">
-        <div class="typewriter-container text-center text-white">
-          <div class="typewriter-text">
+      <section className="hero-section d-flex align-items-center justify-content-center">
+        <div className="typewriter-container text-center text-white">
+          <div className="typewriter-text">
             Tranquillità, Confort e Vitalenta...
           </div>
         </div>
