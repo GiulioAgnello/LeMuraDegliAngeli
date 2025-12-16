@@ -11,8 +11,9 @@
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 20px;
   margin-top: 2rem;
 }
 
@@ -23,16 +24,29 @@
   border-radius: 8px;
   aspect-ratio: 1;
   transition: transform 0.3s ease;
+  background: #f0f0f0;
+  will-change: transform;
 }
 
-/* .gallery-item:hover {
+.gallery-item:hover {
   transform: scale(1.05);
-} */
+}
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  color: #999;
 }
 
 /* Modal Styles */
