@@ -1,4 +1,23 @@
+import { useState, useEffect } from "react";
+
 export default function Homepage() {
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    const RoomsCall = async () => {
+      try {
+        const response = await fetch("http://localhost:5214/api/Rooms/");
+        const data = await response.json();
+        setRooms(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching rooms data:", error);
+      }
+    };
+
+    RoomsCall();
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -41,6 +60,12 @@ export default function Homepage() {
       <section className="py-5 bg-light">
         <div className="container">
           <h2 className="text-center mb-5">Scopri la Struttura</h2>
+          {rooms.map((room) => (
+            <div key={room.id} className="mb-4">
+              <h4>{room.name}</h4>
+              <p>{room.description}</p>
+            </div>
+          ))}
           <div className="row g-3">
             <div className="col-12 col-md-6 col-lg-3">
               <img
