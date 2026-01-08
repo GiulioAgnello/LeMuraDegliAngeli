@@ -60,41 +60,16 @@ export default function Homepage() {
       <section className="py-5 bg-light">
         <div className="container">
           <h2 className="text-center mb-5">Scopri la Struttura</h2>
-          {rooms.map((room) => (
-            <div key={room.id} className="mb-4">
-              <h4>{room.name}</h4>
-              <p>{room.description}</p>
-            </div>
-          ))}
-          <div className="row g-3">
-            <div className="col-12 col-md-6 col-lg-3">
-              <img
-                src="/images/camera1.jpg"
-                alt="Camera 1"
-                className="img-fluid rounded"
-              />
-            </div>
-            <div className="col-12 col-md-6 col-lg-3">
-              <img
-                src="/images/camera2.jpg"
-                alt="Camera 2"
-                className="img-fluid rounded"
-              />
-            </div>
-            <div className="col-12 col-md-6 col-lg-3">
-              <img
-                src="/images/cucina.jpg"
-                alt="Cucina"
-                className="img-fluid rounded"
-              />
-            </div>
-            <div className="col-12 col-md-6 col-lg-3">
-              <img
-                src="/images/terrazzo.jpg"
-                alt="Terrazzo"
-                className="img-fluid rounded"
-              />
-            </div>
+          <div className="row text-center display-flex justify-content-center">
+            {rooms.map((room) => (
+              <div className="col-3">
+                <div key={room.id} className="mb-4">
+                  <h4>{room.name}</h4>
+                  <strong>Area: {room.pricePerNight}  Mq</strong>
+                  <p>{room.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
