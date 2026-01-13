@@ -24,7 +24,7 @@ export default function Homepage() {
       <section className="hero-section d-flex align-items-center justify-content-center">
         <div className="typewriter-container text-center text-white">
           <div className="typewriter-text">
-            Tranquillità, Confort e Vitalenta...
+            Tranquillità, Comfort e Vitalenta...
           </div>
         </div>
       </section>
@@ -65,7 +65,7 @@ export default function Homepage() {
               <div className="col-3">
                 <div key={room.id} className="mb-4">
                   <h4>{room.name}</h4>
-                  <strong>Area: {room.pricePerNight}  Mq</strong>
+                  <strong>Area: {room.pricePerNight} Mq</strong>
                   <p>{room.description}</p>
                 </div>
               </div>
