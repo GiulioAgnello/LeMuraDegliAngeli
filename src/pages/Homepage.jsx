@@ -32,23 +32,20 @@ export default function Homepage() {
       {/* Presentazione */}
       <section className="py-5">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-12 col-md-6">
-              <h2>Benvenuti</h2>
-              <p>
-                La nostra residenza coniuga il comfort, la storia e il design
-                moderno. Completamente indipendente e sviluppata su tre livelli,
-                offre spazi ampi e accoglienti.
-              </p>
-              <p>
-                Perfetto per esplorare le spiagge e i borghi storici del
-                Salento.
-              </p>
-            </div>
-            <div className="col-12 col-md-6">
+          <div className="row align-items-between g-5 ">
+            <div className="col-md-6 col-12 mb-4 ">
+              <h3 className="text-center">Sternatia</h3>
               <img
-                src="public\1.jpg"
-                alt="Le Mura degli Angeli"
+                src="public\2.jpg"
+                alt="foto_Sterna"
+                className="img-fluid rounded"
+              />
+            </div>
+            <div className="col-md-6 col-12 mb-4">
+              <h3 className="text-center">Corigliano D'otranto</h3>
+              <img
+                src="public\11.jpg"
+                alt="foto_corigliano"
                 className="img-fluid rounded"
               />
             </div>
