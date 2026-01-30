@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
+import dotenv from "dotenv";
 
 export default function Homepage() {
+  const localPort = process.env.REACT_APP_LOCAL_PORT;
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
     const RoomsCall = async () => {
       try {
-        const response = await fetch("http://localhost:5214/api/Rooms/");
+        const response = await fetch(
+          `http://localhost:${localPort}/api/Rooms/`,
+        );
         const data = await response.json();
         setRooms(data);
         console.log(data);
