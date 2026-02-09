@@ -66,8 +66,12 @@ body {
   color: #ffffff;
 
   font-weight: bold;
-  text-shadow: #030303 1px 1px 2px, #030303 0 0 1em, #030303 0 0 0.2em;
-  animation: typing 4s steps(80, end) 1s 1 normal both,
+  text-shadow:
+    #030303 1px 1px 2px,
+    #030303 0 0 1em,
+    #030303 0 0 0.2em;
+  animation:
+    typing 4s steps(80, end) 1s 1 normal both,
     blinkCursor 700ms steps(1, end) infinite;
 }
 
@@ -87,4 +91,15 @@ body {
   to {
     border-color: black;
   }
+}
+
+.imageHomeStructure:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.imageHomeStructure {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }

@@ -39,7 +39,7 @@ export default function Homepage() {
               <img
                 src="public\2.jpg"
                 alt="foto_Sterna"
-                className="img-fluid rounded"
+                className="imageHomeStructure img-fluid rounded"
               />
             </div>
             <div className="col-md-6 col-12 mb-4">
@@ -47,7 +47,7 @@ export default function Homepage() {
               <img
                 src="public\11.jpg"
                 alt="foto_corigliano"
-                className="img-fluid rounded"
+                className="imageHomeStructure img-fluid rounded"
               />
             </div>
           </div>
