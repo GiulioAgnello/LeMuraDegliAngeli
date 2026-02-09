@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Homepage() {
+  const navigate = useNavigate();
   // const localPort = import.meta.env.VITE_LOCAL_PORT;
   const [rooms, setRooms] = useState([]);
 
@@ -35,16 +37,18 @@ export default function Homepage() {
         <div className="container">
           <div className="row align-items-between g-5 ">
             <div className="col-md-6 col-12 mb-4 ">
-              <h3 className="text-center">Sternatia</h3>
+              <h3 className="text-center p-5">Sternatia</h3>
               <img
+                onClick={() => navigate("/sternatia")}
                 src="public\2.jpg"
                 alt="foto_Sterna"
                 className="imageHomeStructure img-fluid rounded"
               />
             </div>
             <div className="col-md-6 col-12 mb-4">
-              <h3 className="text-center">Corigliano D'otranto</h3>
+              <h3 className="text-center p-5">Corigliano D'otranto</h3>
               <img
+                onClick={() => navigate("/corigliano")}
                 src="public\11.jpg"
                 alt="foto_corigliano"
                 className="imageHomeStructure img-fluid rounded"

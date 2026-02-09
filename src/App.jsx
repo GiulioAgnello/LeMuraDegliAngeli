@@ -4,6 +4,8 @@ import Homepage from "./pages/Homepage";
 import Gallery from "./pages/Gallery";
 import Story from "./pages/Story";
 import Contacts from "./pages/Contacts";
+import Sternatia from "./pages/Sternatia";
+import Corigliano from "./pages/Corigliano";
 
 function App() {
   return (
@@ -12,6 +14,9 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Homepage />} />
+            <Route path="/sternatia" element={<Sternatia />} />
+            <Route path="/corigliano" element={<Corigliano />} />
+
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/storia" element={<Story />} />
             <Route path="/contatti" element={<Contacts />} />
