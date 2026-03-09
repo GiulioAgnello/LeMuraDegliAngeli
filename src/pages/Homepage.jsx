@@ -1,74 +1,214 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useApi } from "../hooks/useApi";
+
+function ReviewCard({ review }) {
+  return (
+    <div className="review-card">
+      <div className="review-stars">
+        {[1, 2, 3, 4, 5].map((s) => (
+          <i
+            key={s}
+            className={`bi ${review.rating >= s ? "bi-star-fill" : "bi-star"} text-warning`}
+          ></i>
+        ))}
+      </div>
+      <p className="review-comment">"{review.comment}"</p>
+      <div className="review-author">
+        <div className="review-avatar">
+          {review.guestName?.charAt(0)?.toUpperCase()}
+        </div>
+        <div>
+          <strong>{review.guestName}</strong>
+          <span className="review-date">
+            {new Date(review.createdAt).toLocaleDateString("it-IT", {
+              month: "long",
+              year: "numeric",
+            })}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Homepage() {
   const navigate = useNavigate();
-  // const localPort = import.meta.env.VITE_LOCAL_PORT;
+  const { authFetch } = useApi();
   const [rooms, setRooms] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const RoomsCall = async () => {
-      try {
-        const response = await fetch(`http://localhost:5214/api/Rooms/`);
-        const data = await response.json();
-        setRooms(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching rooms data:", error);
-      }
-    };
-
-    RoomsCall();
+    authFetch("/api/Rooms/")
+      .then(setRooms)
+      .catch(() => setRooms([]));
+    authFetch("/api/Reviews/public")
+      .then(setReviews)
+      .catch(() => setReviews([]));
   }, []);
+
+  const avgRating = reviews.length
+    ? (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1)
+    : null;
 
   return (
     <>
-      {/* Hero Section */}
       <section className="hero-section d-flex align-items-center justify-content-center">
-        <div className="typewriter-container text-center text-white">
-          <div className="typewriter-text">
-            Tranquillità, Comfort e Vitalenta...
+        <div className="hero-overlay"></div>
+        <div className="hero-content text-center text-white">
+          <div className="typewriter-container">
+            <div className="typewriter-text">
+              Tranquillità, Comfort e Vitalenta...
+            </div>
+          </div>
+          {avgRating && (
+            <div className="hero-rating mt-3">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <i key={s} className="bi bi-star-fill text-warning me-1"></i>
+              ))}
+              <span className="ms-2">
+                {avgRating} · {reviews.length} recensioni
+              </span>
+            </div>
+          )}
+          <div className="hero-cta mt-4">
+            <Link to="/prenota" className="btn-hero-primary">
+              <i className="bi bi-calendar-check me-2"></i>Prenota ora
+            </Link>
+            <Link to="/gallery" className="btn-hero-secondary">
+              <i className="bi bi-images me-2"></i>Scopri la struttura
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Presentazione */}
       <section className="py-5">
         <div className="container">
-          <div className="row align-items-between g-5 ">
-            <div className="col-md-6 col-12 mb-4 ">
-              <h3 className="text-center p-5">Sternatia</h3>
-              <img
+          <div className="section-title text-center mb-5">
+            <span className="section-label">Le nostre strutture</span>
+            <h2>Due perle nel cuore del Salento</h2>
+          </div>
+          <div className="row align-items-center g-5">
+            <div className="col-md-6 col-12">
+              <div
+                className="structure-card"
                 onClick={() => navigate("/sternatia")}
-                src="public\2.jpg"
-                alt="foto_Sterna"
-                className="imageHomeStructure img-fluid rounded"
-              />
+              >
+                <img src="/2.jpg" alt="Sternatia" className="structure-img" />
+                <div className="structure-overlay">
+                  <h3>Sternatia</h3>
+                  <p>Nel borgo medievale, tra vicoli e storia</p>
+                  <span className="structure-cta">
+                    Scopri <i className="bi bi-arrow-right ms-1"></i>
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="col-md-6 col-12 mb-4">
-              <h3 className="text-center p-5">Corigliano D'otranto</h3>
-              <img
+            <div className="col-md-6 col-12">
+              <div
+                className="structure-card"
                 onClick={() => navigate("/corigliano")}
-                src="public\11.jpg"
-                alt="foto_corigliano"
-                className="imageHomeStructure img-fluid rounded"
-              />
+              >
+                <img
+                  src="/11.jpg"
+                  alt="Corigliano d'Otranto"
+                  className="structure-img"
+                />
+                <div className="structure-overlay">
+                  <h3>Corigliano d'Otranto</h3>
+                  <p>Tra il castello e i sapori autentici</p>
+                  <span className="structure-cta">
+                    Scopri <i className="bi bi-arrow-right ms-1"></i>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Galleria */}
-      <section className="py-5 bg-light">
+      {rooms.length > 0 && (
+        <section className="py-5 bg-light">
+          <div className="container">
+            <div className="section-title text-center mb-5">
+              <span className="section-label">Le nostre camere</span>
+              <h2>Comfort autentico</h2>
+            </div>
+            <div className="row justify-content-center g-4">
+              {rooms.map((room) => (
+                <div key={room.id} className="col-12 col-md-6 col-lg-4">
+                  <div className="room-preview-card">
+                    {room.imageUrl && (
+                      <img src={room.imageUrl} alt={room.name} />
+                    )}
+                    <div className="room-preview-body">
+                      <h4>{room.name}</h4>
+                      <p>{room.description}</p>
+                      <div className="room-preview-meta">
+                        <span>
+                          <i className="bi bi-rulers me-1"></i>
+                          {room.pricePerNight} m²
+                        </span>
+                        {room.maxGuests && (
+                          <span>
+                            <i className="bi bi-people me-1"></i>max{" "}
+                            {room.maxGuests}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="py-5">
         <div className="container">
-          <h2 className="text-center mb-5">Scopri la Struttura</h2>
-          <div className="row text-center display-flex justify-content-center">
-            {rooms.map((room) => (
-              <div className="col-3">
-                <div key={room.id} className="mb-4">
-                  <h4>{room.name}</h4>
-                  <strong>Area: {room.pricePerNight} Mq</strong>
-                  <p>{room.description}</p>
+          <div className="section-title text-center mb-5">
+            <span className="section-label">Incluso nel soggiorno</span>
+            <h2>I Nostri Servizi</h2>
+          </div>
+          <div className="row text-center g-4">
+            {[
+              {
+                icon: "bi-wifi",
+                title: "WiFi Gratuito",
+                desc: "Connessione veloce in tutta la struttura",
+              },
+              {
+                icon: "bi-cup-hot",
+                title: "Colazione Inclusa",
+                desc: "Colazione italiana completa ogni mattina",
+              },
+              {
+                icon: "bi-car-front",
+                title: "Parcheggio Privato",
+                desc: "Parcheggio gratuito e sicuro",
+              },
+              {
+                icon: "bi-book",
+                title: "Consigli di Viaggio",
+                desc: "Guide locali e suggerimenti personalizzati",
+              },
+              {
+                icon: "bi-flower1",
+                title: "Terrazzo Privato",
+                desc: "Spazio esterno con vista panoramica",
+              },
+              {
+                icon: "bi-chat-left-heart",
+                title: "Ospitalità Salentina",
+                desc: "Benvenuti con calore e autenticità",
+              },
+            ].map((s, i) => (
+              <div key={i} className="col-12 col-md-4">
+                <div className="service-card">
+                  <i className={`bi ${s.icon} service-icon`}></i>
+                  <h5>{s.title}</h5>
+                  <p>{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -76,86 +216,58 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Servizi */}
+      {reviews.length > 0 && (
+        <section className="py-5 bg-light">
+          <div className="container">
+            <div className="section-title text-center mb-5">
+              <span className="section-label">Cosa dicono di noi</span>
+              <h2>
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <i key={s} className="bi bi-star-fill text-warning me-1"></i>
+                ))}{" "}
+                {avgRating}
+              </h2>
+            </div>
+            <div className="row g-4">
+              {reviews.slice(0, 6).map((r, i) => (
+                <div key={i} className="col-12 col-md-6 col-lg-4">
+                  <ReviewCard review={r} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="booking-cta-section py-5">
+        <div className="container text-center">
+          <h2>Pronto per il tuo soggiorno nel Salento?</h2>
+          <p>Camere disponibili per l'estate 2025. Prenota subito!</p>
+          <Link to="/prenota" className="btn-cta-main">
+            <i className="bi bi-calendar-check me-2"></i>Verifica disponibilità
+          </Link>
+        </div>
+      </section>
+
       <section className="py-5">
         <div className="container">
-          <h2 className="text-center mb-5">I Nostri Servizi</h2>
-          <div className="row text-center">
-            <div className="col-12 col-md-4 mb-4">
-              <i className="bi bi-wifi fs-3 text-primary mb-3"></i>
-              <h5>WiFi Gratuito</h5>
-              <p>Connessione veloce in tutta la struttura</p>
-            </div>
-            <div className="col-12 col-md-4 mb-4">
-              <i className="bi bi-cup-hot fs-3 text-primary mb-3"></i>
-              <h5>Colazione Inclusa</h5>
-              <p>Colazione italiana completa ogni mattina</p>
-            </div>
-            <div className="col-12 col-md-4 mb-4">
-              <i className="bi bi-car-front fs-3 text-primary mb-3"></i>
-              <h5>Parcheggio Privato</h5>
-              <p>Parcheggio gratuito e sicuro</p>
-            </div>
-            <div className="col-12 col-md-4 mb-4">
-              <i className="bi bi-book fs-3 text-primary mb-3"></i>
-              <h5>Consigli di Viaggio</h5>
-              <p>Guide locali e suggerimenti personalizzati</p>
-            </div>
-            <div className="col-12 col-md-4 mb-4">
-              <i className="bi bi-flower1 fs-3 text-primary mb-3"></i>
-              <h5>Terrazzo Privato</h5>
-              <p>Spazio esterno con vista panoramica</p>
-            </div>
-            <div className="col-12 col-md-4 mb-4">
-              <i className="bi bi-chat-left-heart fs-3 text-primary mb-3"></i>
-              <h5>Ospitalità Salentina</h5>
-              <p>Benvenuti con calore e autenticità</p>
-            </div>
+          <div className="section-title text-center mb-4">
+            <span className="section-label">Come raggiungerci</span>
+            <h2>Siamo nel cuore del Salento</h2>
+          </div>
+          <div className="map-container">
+            <iframe
+              title="Le Mura degli Angeli"
+              src="https://maps.google.com/maps?q=Sternatia,+Lecce&output=embed"
+              width="100%"
+              height="400"
+              style={{ border: 0, borderRadius: "12px" }}
+              allowFullScreen
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
-
-      {/* Form Prenotazione */}
-      <section className="py-5 bg-light">
-        <div className="container">
-          <h2 className="text-center mb-5">Chiedi Disponibilità</h2>
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-6">
-              <form>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    required
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="dates" className="form-label">
-                    Date di arrivo e partenza
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="dates"
-                    placeholder="dd/mm/yyyy - dd/mm/yyyy"
-                    required
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary w-100">
-                  Invia Richiesta
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Posizione */}
-      <section className="py-5"></section>
     </>
   );
 }
