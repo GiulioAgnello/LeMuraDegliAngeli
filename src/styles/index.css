@@ -81,16 +81,12 @@ h5 {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(201, 168, 76, 0.2);
 }
-.title {
-  display: flex;
-  justify-content: center;
-}
+
 .title img {
-  height: 80px;
-  width: auto;
-  object-fit: contain;
-  margin: 0 auto;
-  padding: 4px 0;
+  height: 50px;
+  width: 150px;
+  object-fit: cover;
+  padding-left: 10px;
 }
 .nav-link {
   color: rgba(255, 255, 255, 0.85) !important;
