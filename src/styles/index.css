@@ -2197,13 +2197,43 @@ footer p {
   color: rgba(255, 255, 255, 0.4);
 }
 
+/* DASHBOARD SIDEBAR TOGGLE (mobile) */
+.sidebar-toggle {
+  display: none;
+  background: var(--white);
+  border: 1px solid var(--stone-dark);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.2s;
+}
+.sidebar-toggle:hover {
+  background: var(--stone);
+}
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
 /* RESPONSIVE */
 @media (max-width: 992px) {
+  /* Navbar logo — riduci lo scale quando compare l'hamburger */
+  .title img {
+    scale: 2;
+  }
+
   .dashboard-sidebar {
     transform: translateX(-260px);
   }
   .dashboard-main {
     margin-left: 0;
+    padding: 24px 20px;
   }
   .timeline::before {
     left: 24px;
@@ -2217,18 +2247,99 @@ footer p {
   .timeline-dot {
     left: 24px;
   }
+
+  /* Widget prenotazione — non sticky su tablet */
+  .booking-widget-sticky {
+    position: relative;
+    top: 0;
+  }
+
+  /* Dashboard sidebar toggle visibile */
+  .sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+  .sidebar-overlay {
+    display: block;
+  }
+  .dashboard-sidebar.sidebar-open {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  .dashboard-sidebar {
+    transition: transform 0.3s ease;
+  }
+
+  /* Spaziatura sezioni ridotta */
+  .story-content,
+  .contacts-content {
+    padding: 40px 0;
+  }
+  .story-values {
+    padding: 40px 0 0;
+  }
 }
+
 @media (max-width: 768px) {
+  /* Navbar */
+  .title img {
+    scale: 1.7;
+  }
+
+  /* Hero */
+  .typewriter-container {
+    font-size: 2.2rem;
+    white-space: normal;
+    overflow: visible;
+  }
   .typewriter-text {
     animation: none;
     width: auto;
+    white-space: normal;
+    border-right: none;
   }
+  .hero-section {
+    min-height: 70vh;
+  }
+
+  /* Section titles */
+  .section-title h2 {
+    font-size: 1.9rem;
+  }
+  .booking-cta-section h2 {
+    font-size: 1.7rem;
+  }
+
+  /* Page heroes */
+  .booking-hero h1,
+  .gallery-hero h1,
+  .contacts-hero h1 {
+    font-size: 2.2rem;
+  }
+  .story-hero h1 {
+    font-size: 2.2rem;
+  }
+  .property-hero {
+    height: 45vh;
+  }
+  .property-hero-content {
+    padding: 24px;
+  }
+  .property-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  /* Booking steps */
   .booking-step span {
     font-size: 0.65rem;
   }
+
+  /* Gallery */
   .gallery-grid {
     columns: 2 180px;
   }
+
+  /* Story images */
   .story-img-main {
     width: 100%;
   }
@@ -2237,23 +2348,231 @@ footer p {
     margin-left: 40%;
     margin-top: -40px;
   }
-  .property-hero {
-    height: 45vh;
+
+  /* Contact form / Login */
+  .contact-form-card {
+    padding: 28px 20px;
   }
+  .login-card {
+    padding: 36px 24px;
+  }
+
+  /* Dashboard */
   .dashboard-main {
     padding: 20px;
   }
+
+  /* Bookings grid */
+  .bookings-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
 @media (max-width: 576px) {
+  /* Navbar logo */
+  .title img {
+    height: 40px;
+    width: 120px;
+    scale: 1.5;
+    padding-left: 5px;
+  }
+
+  /* Hero */
+  .hero-section {
+    min-height: 60vh;
+  }
+  .typewriter-container {
+    font-size: 1.7rem;
+    white-space: normal;
+    overflow: visible;
+  }
   .hero-cta {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  /* Section titles */
+  .section-title h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Structure cards */
+  .structure-img {
+    height: 240px;
+  }
+
+  /* Booking CTA */
+  .booking-cta-section h2 {
+    font-size: 1.5rem;
+  }
+  .booking-cta-section p {
+    font-size: 0.95rem;
+  }
+  .btn-cta-main {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  /* Page heroes */
+  .booking-hero {
+    padding: 40px 16px 30px;
+  }
+  .booking-hero h1 {
+    font-size: 1.8rem;
+  }
+  .gallery-hero {
+    padding: 40px 16px 30px;
+  }
+  .gallery-hero h1 {
+    font-size: 1.8rem;
+  }
+  .contacts-hero {
+    padding: 40px 16px 30px;
+  }
+  .contacts-hero h1 {
+    font-size: 1.8rem;
+  }
+  .story-hero {
+    padding: 50px 16px;
+  }
+  .story-hero h1 {
+    font-size: 1.8rem;
+  }
+  .property-hero-content {
+    padding: 16px 20px;
+  }
+  .property-hero-content h1 {
+    font-size: 1.7rem;
+  }
+
+  /* Gallery */
   .gallery-grid {
     columns: 1;
   }
+
+  /* Booking */
   .booking-step-content {
     padding: 24px 16px;
+  }
+  .booking-step span {
+    font-size: 0.6rem;
+    max-width: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* Room card — impila verticalmente su mobile */
+  .room-card {
+    flex-direction: column;
+  }
+  .room-card-img {
+    width: 100%;
+    height: 160px;
+  }
+
+  /* Property features grid */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Story intro padding reset */
+  .story-intro {
+    padding-right: 0;
+  }
+
+  /* Story images — rimuovi sovrapposizione su mobile */
+  .story-img-main {
+    width: 100%;
+    height: 220px;
+  }
+  .story-img-secondary {
+    display: none;
+  }
+
+  /* Contact form / Login */
+  .contact-form-card {
+    padding: 20px 16px;
+  }
+  .login-card {
+    padding: 28px 16px;
+  }
+
+  /* Booking recap e widget */
+  .booking-recap {
+    padding: 16px;
+  }
+  .booking-widget {
+    padding: 20px 16px;
+  }
+
+  /* Dashboard */
+  .dashboard-main {
+    padding: 16px;
+  }
+  .bookings-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Guest portal */
+  .guest-content {
+    padding: 20px 16px;
+  }
+  .guest-header {
+    padding: 20px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Sezioni — riduce padding verticale */
+  .story-content,
+  .contacts-content {
+    padding: 32px 0;
+  }
+  .story-values {
+    padding: 28px 0 0;
+  }
+  .property-content {
+    padding: 32px 0;
+  }
+  .property-description {
+    margin-bottom: 24px;
+  }
+
+  /* Navbar — menu aperto su mobile: migliori touch target */
+  .navbar-collapse .nav-link {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .navbar-collapse .nav-prenota {
+    margin: 8px 16px;
+    display: block;
+    text-align: center;
+  }
+  .navbar-collapse .nav-login,
+  .navbar-collapse .nav-dashboard {
+    margin: 4px 16px;
+    display: block;
+    text-align: center;
+  }
+  .navbar-collapse .btn-logout {
+    padding: 12px 16px;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Timeline — evita testo fuori schermo */
+  .timeline-content {
+    max-width: 100%;
   }
 }

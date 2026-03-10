@@ -298,6 +298,8 @@ function ReviewsList() {
 export default function Dashboard() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const handleLogout = () => {
     logout();
     navigate("/");
@@ -305,7 +307,15 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-layout">
-      <aside className="dashboard-sidebar">
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      <aside
+        className={`dashboard-sidebar${sidebarOpen ? " sidebar-open" : ""}`}
+      >
         <div className="sidebar-logo">
           <img
             src="/Le_Mura_degli_Angeli__1_-removebg-preview.png"
@@ -358,6 +368,13 @@ export default function Dashboard() {
         </div>
       </aside>
       <main className="dashboard-main">
+        <button
+          className="sidebar-toggle"
+          onClick={() => setSidebarOpen((o) => !o)}
+          aria-label="Menu"
+        >
+          <i className="bi bi-list"></i>
+        </button>
         <Routes>
           <Route
             index

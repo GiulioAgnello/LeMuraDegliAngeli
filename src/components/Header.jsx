@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div className="navcontainer">
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-fluid">
           <Link className="title" to="/">
             <img
