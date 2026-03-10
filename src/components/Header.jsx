@@ -12,14 +12,14 @@ export default function Header() {
 
   return (
     <div className="navcontainer">
-      <Link className="title" to="/">
-        <img
-          src="/Le_Mura_degli_Angeli__1_-removebg-preview.png"
-          alt="Le Mura degli Angeli"
-        />
-      </Link>
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
+          <Link className="title" to="/">
+            <img
+              src="/Le_Mura_degli_Angeli__1_-removebg-preview.png"
+              alt="Le Mura degli Angeli"
+            />
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
