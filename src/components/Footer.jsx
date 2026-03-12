@@ -70,21 +70,21 @@ export default function Footer() {
                 className="bi bi-geo-alt me-2"
                 style={{ color: "#c9a84c" }}
               ></i>
-              Via degli Angeli 1, Sternatia (LE)
+              via Giudeca 28, Sternatia (LE)
             </p>
             <p style={{ marginBottom: 8 }}>
               <i
                 className="bi bi-envelope me-2"
                 style={{ color: "#c9a84c" }}
               ></i>
-              info@lemuradegliangeli.it
+              lemuradegliangeli@yahoo.com
             </p>
             <p style={{ marginBottom: 8 }}>
               <i
                 className="bi bi-telephone me-2"
                 style={{ color: "#c9a84c" }}
               ></i>
-              +39 333 xxx xxxx
+              +39 327 120 8496
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Le Mura degli Angeli — Tutti i diritti
             riservati
             <span style={{ margin: "0 12px" }}>·</span>
-            P. IVA: 04XXXXXXX
+            CIN:
           </p>
         </div>
       </div>
