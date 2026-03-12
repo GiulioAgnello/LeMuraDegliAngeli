@@ -45,14 +45,14 @@ export default function Contacts() {
                   <i className="bi bi-whatsapp"></i>
                 </div>
                 <div>
-                  <strong>WhatsApp (preferito)</strong>
+                  <strong>WhatsApp</strong>
                   <a
-                    href="https://wa.me/393331234567"
+                    href="https://wa.me/393271208496"
                     target="_blank"
                     rel="noreferrer"
                     className="contact-link"
                   >
-                    +39 333 xxx xxxx
+                    +39 327 120 8496
                   </a>
                   <span className="text-muted small d-block">
                     Risposta entro poche ore
@@ -66,10 +66,10 @@ export default function Contacts() {
                 <div>
                   <strong>Email</strong>
                   <a
-                    href="mailto:info@lemuradegliangeli.it"
+                    href="mailto:lemuradegliangeli@yahoo.com"
                     className="contact-link"
                   >
-                    info@lemuradegliangeli.it
+                    lemuradegliangeli@yahoo.com
                   </a>
                 </div>
               </div>
@@ -79,7 +79,7 @@ export default function Contacts() {
                 </div>
                 <div>
                   <strong>Sternatia</strong>
-                  <span>Via degli Angeli 1, 73010 Sternatia (LE)</span>
+                  <span>Via Giudeca 28, 73010 Sternatia (LE)</span>
                 </div>
               </div>
               <div className="contact-item">
