@@ -208,15 +208,19 @@ export default function GuestPortal() {
               <ul className="info-list">
                 <li>
                   <i className="bi bi-whatsapp me-2 text-success"></i>WhatsApp:
-                  +39 333 xxx xxxx
+                  +39 327 120 8496
+                </li>
+                <li>
+                  <i className="bi bi-telephone me-2 text-primary"></i>Telefono:
+                  +39 327 120 8496
                 </li>
                 <li>
                   <i className="bi bi-envelope me-2 text-primary"></i>
-                  info@lemuradegliangeli.it
+                  lemuradegliangeli@yahoo.com
                 </li>
                 <li>
-                  <i className="bi bi-geo-alt me-2 text-danger"></i>Via degli
-                  Angeli 1, Sternatia (LE)
+                  <i className="bi bi-geo-alt me-2 text-danger"></i>Via Giudeca
+                  28, Sternatia (LE)
                 </li>
               </ul>
             </div>
@@ -227,15 +231,15 @@ export default function GuestPortal() {
               <h4>Regole della casa</h4>
               <ul className="info-list">
                 <li>
-                  <i className="bi bi-moon me-2"></i>Silenzio dopo le 22:00
+                  <i className="bi bi-moon me-2"></i>Silenzio dopo le 00:00
                 </li>
                 <li>
                   <i className="bi bi-slash-circle me-2 text-danger"></i>Vietato
                   fumare in casa
                 </li>
                 <li>
-                  <i className="bi bi-droplet me-2 text-primary"></i>Risparmio
-                  idrico
+                  <i className="bi bi-droplet me-2 text-primary"></i>Vietato
+                  fare feste
                 </li>
                 <li>
                   <i className="bi bi-recycle me-2 text-success"></i>Raccolta

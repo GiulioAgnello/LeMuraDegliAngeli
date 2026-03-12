@@ -47,10 +47,10 @@ export default function Story() {
                 autentica che caratterizza questa terra meravigliosa.
               </p>
               <p>
-                Ogni mattina la colazione viene preparata con prodotti locali:
-                olio extravergine pugliese, taralli artigianali, marmellate
-                fatte in casa, e naturalmente il caffè del Bar del paese. Perché
-                il Salento si vive anche a tavola.
+                Cerchiamo di valorizzare la nostra terra unendo tradizione,
+                design e comfort. Le nostre strutture sono il posto ideale per
+                immergersi nel Salento più autentico e vivere un'esperienza
+                indimenticabile.
               </p>
             </div>
           </div>
